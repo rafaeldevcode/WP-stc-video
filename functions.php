@@ -27,25 +27,29 @@ function register_button( $buttons ) {
  // VIMEO
 function add_video_vimeo( $atts = array(), $content = null ) {
 	extract(shortcode_atts(array(
-	 'id' => '#',
-	 'lang' => '',
+	'headlinetopo' => '',
+	 'id'          => '#',
+	 'lang'        => '',
+	 'fonte'       => '',
 	), $atts));
  
-	return '<div></div><div class="stc-video"><div class="top"></div><iframe src="https://player.vimeo.com/video/'. $id . '?badge=0&autopause=0&player_id=0&app_id=58479" 
+	return '<div class="stc-video"><div class="stc-headline">'.$headlinetopo.'</div><div class="top"></div><iframe src="https://player.vimeo.com/video/'.$id.'?badge=0&autopause=0&player_id=0&app_id=58479" 
 	frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><div class="botton"></div>
-	<span>'. $lang .'<span></div>';
+	<span>'.$lang.'</span><div class="stc-fonte">'.$fonte.'</div></div>';
  }
  
  // YOUTUBE
-function add_video_youtube($atts, $content = null) {
+function add_video_youtube($atts = array(), $content = null) {
     extract(shortcode_atts(array(
-       'id' => '#',
-	   'lang' => '',
+		'headlinetopo' => '',
+		'id'           => '#',
+		'lang'         => '',
+		'fonte'        => '',
     ), $atts));
  
-    return '<div></div><div class="stc-video"><div class="top"></div><iframe src="https://www.youtube.com/embed/'. $id . '?autoplay=1" 
+    return '<div class="stc-video"><div class="stc-headline">'.$headlinetopo.'</div><div class="top"></div><iframe src="https://www.youtube.com/embed/'.$id.'?autoplay=1" 
     frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><div class="botton"></div>
-	<span>'. $lang .'<span></div>';
+	<span>'.$lang.'</span><div class="stc-fonte">'.$fonte.'</div></div>';
  }
 
  add_action('init', 'my_video_button');
